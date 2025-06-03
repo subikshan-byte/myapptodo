@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDo Login with Leaves</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(270deg, #667eea, #764ba2, #fc5c7d, #6a82fb);
+      background-size: 800% 800%;
+      animation: backgroundShift 20s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .leaf {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: url('data:image/svg+xml;utf8,<svg fill="orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c0 0 2 5 6 7 0 0-4 1-4 5s3 5 3 5-5 0-7-3-2-6-2-6 2 3 4 3c0 0-1-3-4-5 0 0 1-5 4-6z"/></svg>') no-repeat center/contain;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Generate multiple leaves with different positions and speeds */
+    .leaf:nth-child(1)  { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+    .leaf:nth-child(2)  { left: 25%; animation-duration: 10s; animation-delay: 2s; }
+    .leaf:nth-child(3)  { left: 40%; animation-duration: 14s; animation-delay: 4s; }
+    .leaf:nth-child(4)  { left: 55%; animation-duration: 11s; animation-delay: 1s; }
+    .leaf:nth-child(5)  { left: 70%; animation-duration: 13s; animation-delay: 3s; }
+    .leaf:nth-child(6)  { left: 85%; animation-duration: 9s;  animation-delay: 2s; }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      padding: 40px 30px;
+      width: 350px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-container h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: background 0.3s ease;
+    }
+
+    .input-group input:focus {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .forgot-password {
+      text-align: right;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .forgot-password a {
+      color: #f1f1f1;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #6c5ce7;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #574bcb;
+    }
+
+    .signup-link {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 30px 20px;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Falling Leaves -->
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+  <div class="leaf"></div>
+
+  <!-- Login Form -->
+  <div class="login-container">
+    <h2>ToDo Login</h2>
+    <form method="POST" action="{% url "todo:login_button"  %}">
+      {% csrf_token %}
+      <div class="input-group">
+        <input type="text" placeholder="Username" required  name="username"/>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password" required  name="password"/>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="{% url "todo:signup" %}">Sign up</a>
+    </div>
+  </div>
+</body>
+</html>

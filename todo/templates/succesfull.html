@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In Successful</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(270deg, #667eea, #764ba2, #fc5c7d, #6a82fb);
+      background-size: 800% 800%;
+      animation: gradientShift 20s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .success-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(15px);
+    }
+
+    .success-box h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .success-box p {
+      font-size: 16px;
+      opacity: 0.85;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      margin: 5px;
+    }
+
+    .button:hover {
+      background-color: #219150;
+    }
+
+    .login-button {
+      background-color: #6c5ce7;
+    }
+
+    .login-button:hover {
+      background-color: #574bcb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="success-box">
+    <h1>✅ Sign-In Successful</h1>
+    <p>Welcome back! You have successfully signed in.</p>
+    <a href="{% url "todo:login" %}" class="button login-button">🔐 Login</a>
+  </div>
+
+</body>
+</html>

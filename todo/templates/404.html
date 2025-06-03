@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(270deg, #667eea, #764ba2, #fc5c7d, #6a82fb);
+      background-size: 800% 800%;
+      animation: gradientShift 20s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s ease;
+    }
+
+    .error-code {
+      font-size: 100px;
+      font-weight: 900;
+      letter-spacing: 5px;
+      animation: float 3s ease-in-out infinite;
+      background: linear-gradient(45deg, #ff6b81, #6a89cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 15px 0 10px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 15px;
+      opacity: 0.85;
+      margin-bottom: 25px;
+    }
+
+    a {
+      padding: 12px 25px;
+      background-color: #6c5ce7;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    a:hover {
+      background-color: #574bcb;
+    }
+
+    @media (max-width: 500px) {
+      .error-code {
+        font-size: 72px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass">
+    <div class="error-code">404</div>
+    <h2>Oops! Page Not Found</h2>
+    <p>The page you’re looking for doesn't exist or was moved.</p>
+    <a href="/">Back to Home</a>
+  </div>
+
+</body>
+</html>
