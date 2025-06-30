@@ -83,8 +83,7 @@ DATABASES = {
         'HOST':"103.179.40.81",
         "PORT":'3306'
         ,'OPTIONS':{
-            'connect_timeout':5
-
+            'connect_timeout':5}
     }
 }
 
