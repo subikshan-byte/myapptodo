@@ -1,1 +1,1 @@
-web: gunicorn myapptodo:app
+web: gunicorn myapptodo:app.py
