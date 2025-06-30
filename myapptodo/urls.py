@@ -18,6 +18,6 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path("myapptodo-4.onrender.com/",include("todo.urls")),
+    path("",include("todo.urls")),
     path('admin/', admin.site.urls),
 ]
