@@ -10,5 +10,5 @@ urlpatterns = [
     path("signupsuccess",views.signup_button,name='signup_button'),
     path("newtask",views.newtask,name="newtask"),
         path("newaskadded",views.newtask_button,name="task_button"),
-        path("myapptodo-4.onrender.com",views.index,name="index")
+        path("",views.index,name="index")
 ]
