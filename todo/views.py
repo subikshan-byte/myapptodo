@@ -19,7 +19,7 @@ def login_button(request):
                 username=request.POST.get("username")
                 return redirect("todo:index")
             except:
-                return redirect("odo:index")
+                return redirect("todo:index")
         else:
             title="user already taken"
             return render(request,"incorrect.html",{"title":title})
