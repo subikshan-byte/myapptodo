@@ -1,1 +1,1 @@
-web: gunicorn myapptodo.wsgi:applications
+web: gunicorn myapptodo:app
